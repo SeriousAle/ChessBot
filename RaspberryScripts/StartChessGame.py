@@ -1,10 +1,3 @@
-# Interactive Chessboard - www.DIYmachines.co.uk
-# This codes includes large sections kindly shared on www.chess.fortherapy.co.uk, which itself incorporates alot of other peoples code.
-# Please feel free to modify, adapt and share. Any excisting licenses included must remain intact as well as including acknowledgment to those who have contribued.
-# This program plays chess using Stockfish the open source chess engine, using the ChessBoard library to manage the board.
-# It is written in Python 2.7 because chessboard is.
-# It assumes you have got the python libraries chessboard, subprocess and time
-
 
 # initiate chessboard
 from ChessBoard import ChessBoard

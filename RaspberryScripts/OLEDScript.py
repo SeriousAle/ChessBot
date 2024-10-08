@@ -2,8 +2,7 @@
 This code is based on examples kindly created, documented, and shared by Adafruit:
 
 This is for use on (Linux) computers that are using CPython with
-Adafruit Blinka to support CircuitPython libraries. CircuitPython does
-not support PIL/pillow (python imaging library)!
+Adafruit Blinka to support CircuitPython libraries.
 """
 
 import board
