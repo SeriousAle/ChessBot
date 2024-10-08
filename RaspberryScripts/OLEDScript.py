@@ -79,7 +79,7 @@ draw = ImageDraw.Draw(image)
 #font = ImageFont.load_default()
 
 #load the Truetype font.
-font = ImageFont.truetype("/home/pi/SmartChess/RaspberryPiCode/WorkSans-Medium.ttf", textSize)
+font = ImageFont.truetype("/home/pi/SmartChess/RaspberryPiCode/WorkSans-Medium.ttf", textSize) #textSize can be set to 14 to prevent possible casting problems
 
 # Draw Some Text
 #textLine1 = "Choose a mode"
@@ -88,7 +88,7 @@ font = ImageFont.truetype("/home/pi/SmartChess/RaspberryPiCode/WorkSans-Medium.t
 
 left, top, right, bottom = font.getbbox(textLine1)
 text_width = right - left
-ext_height = bottom - top
+text_height = bottom - top
 draw.text(
     (oled.width // 2 - text_width // 2, 0),
     textLine1,
@@ -99,7 +99,7 @@ draw.text(
 
 left, top, right, bottom = font.getbbox(textLine2)
 text_width = right - left
-ext_height = bottom - top
+text_height = bottom - top
 draw.text(
     (oled.width // 2 - text_width // 2, 20),
     textLine2,
@@ -109,7 +109,7 @@ draw.text(
 
 left, top, right, bottom = font.getbbox(textLine3)
 text_width = right - left
-ext_height = bottom - top
+text_height = bottom - top
 draw.text(
     (oled.width // 2 - text_width // 2, 40),
     textLine3,
