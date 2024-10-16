@@ -25,8 +25,11 @@ def get():
     engine.stdin.write('isready\n')
     print('\nengine:')
     while True :
-        text = engine.stdout.readline().strip()
-        if text == 'readyok':
+        print("debug")
+        engine.stdout.flush()
+        text = engine.stdout.readline().strip()  #IL PROBLEMA é QUA!!!!!!!!!
+        #time.sleep(2)
+        if text == 'readyok':                
             break
         if text !='':
             print('\t'+text)
@@ -62,9 +65,11 @@ def sget():
     # using the 'isready' command (engine has to answer 'readyok')
     # to indicate current last line of stdout
     stx=""
+    engine.stdin.flush()
     engine.stdin.write('isready\n')
     print('\nengine:')
     while True :
+        engine.stdout.flush()
         text = engine.stdout.readline().strip()
         #if text == 'readyok':
          #   break
@@ -103,7 +108,7 @@ def sendtoboard(stxt):
 def newgame():
     sendToScreen ('NEW','GAME','','30')
     get ()
-    put('uci')
+    put('uci')     
     get ()
     put('setoption name Skill Level value ' +skill)
     get ()
@@ -123,7 +128,7 @@ def newgame():
     fmove=""
     brdmove=""
     time.sleep(2)
-    sendToScreen ('Please enter','your move:','')
+    sendToScreen ('Please enter','your move:','','14')
     return fmove
 
 def newgameOnline():
@@ -268,6 +273,7 @@ def bmoveOnline(fmove):
 
 def put(command):
     print('\nyou:\n\t'+command)
+    engine.stdin.flush()
     engine.stdin.write(command+'\n')
 
 def shutdownPi():
@@ -315,7 +321,7 @@ if gameplayMode == 'stockfish':
         print ("\n Chess Program \n")
         sendToScreen ('NEW','GAME','','30')
         time.sleep(2)
-        sendToScreen ('Please enter','your move:','')
+        sendToScreen ('Please enter','your move:','','14')
         skill = skillFromArduino
         movetime = movetimeFromArduino #6000
         fmove = newgame()
